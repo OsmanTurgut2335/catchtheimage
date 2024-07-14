@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195632324669",
+    "project_id": "muzundadi",
+    "storage_bucket": "muzundadi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195632324669:android:1283a7185074753ae94a54",
+        "android_client_info": {
+          "package_name": "com.example.muzundad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195632324669-dg5thfc5284velec5ehmgt295qhqj35p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDH48u_1afbG1PslbTvDl-lp1P0_XyOtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195632324669-dg5thfc5284velec5ehmgt295qhqj35p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
