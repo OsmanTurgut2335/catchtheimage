@@ -134,33 +134,6 @@ int score;
          databaseReference.addChildEventListener(childEventListener);
 
 
-/*
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(userArrayList.size()>=1) userArrayList.clear();
-
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()   ){
-             User user = dataSnapshot.getValue(User.class);
-
-                    Log.i(TAG, "onDataChange: "+user);
-         userArrayList.add(user);
-                    System.out.println(user.name);
-                }
-          adaptor.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        databaseReference.addValueEventListener(valueEventListener);
-
-
-*/
 
 
     }
@@ -174,67 +147,5 @@ int score;
 }
 
 
-     /*
-new Deneme().readUsers(new Deneme.DataStatus() {
-    @Override
-    public void DataIsLoaded(List<User> users, List<String> keys) {
-        new RecyclerViewConfig().setConfig(recyclerView,Scoreboard.this,users,keys);
-    }
-
-    @Override
-    public void DataIsInserted() {
-
-    }
-
-    @Override
-    public void DataIsUpdated() {
-
-    }
-
-    @Override
-    public void DataIsDeleted() {
-
-    }
-});
-*/
-
-
-
-       // binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       // adaptor = new Adaptor(userArrayList);
-       // binding.recyclerView.setAdapter(adaptor);
-
-
-
-
-
-         /*
-        Intent intent = getIntent();
-             name = intent.getStringExtra("playerName");
-             score = intent.getIntExtra("score",1);
-             System.out.println(name);
-             System.out.println(score);
-
-             User user = new User(name,score);
-             User user2 = new User(name,score);
-             User user3 = new User(name,score);
-             User user4 = new User(name,score);
-
-             userArrayList.add(user);
-             userArrayList.add(user2);
-             userArrayList.add(user3);
-             userArrayList.add(user4);
-
-             adaptor.notifyDataSetChanged();
-
-             System.out.println(userArrayList.get(0).name);
-
-      if( name == null || score == null ){
-               User user = new User("osman",15);
-               userArrayList.add(user);
-               adaptor.notifyDataSetChanged();
-               Toast.makeText(this," aga bunun içi boş",Toast.LENGTH_LONG).show();
-
-           }*/
 
 

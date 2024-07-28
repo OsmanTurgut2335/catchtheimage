@@ -3,138 +3,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muff"
+    android:background="@drawable/background"
     android:id="@+id/frameLayout"
-    tools:ignore="MissingDefaultResource"
-    >
+    tools:ignore="MissingDefaultResource">
 
-    <ImageView
-        android:id="@+id/muf1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:onClick="onClicked"
-        android:src="@drawable/muff" />
-    <!-- android:visibility="invisible"-->
+  <!-- Score TextView -->
+  <TextView
+      android:id="@+id/scoreTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal|top"
+      android:layout_marginTop="16dp"
+      android:text="Score: 10"
+      android:textSize="24sp"
+      android:textColor="@android:color/black" />
 
-
-
+  <!-- Image Views scattered on the screen -->
   <ImageView
-      android:id="@+id/muf3"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="100dp"
+      android:id="@+id/image1"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="80dp"
       android:onClick="onClicked"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
-      android:src="@drawable/muff" />
-    <!-- android:visibility="invisible"-->
   <ImageView
-      android:id="@+id/muf4"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="200dp"
-
+      android:id="@+id/image3"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="180dp"
+      android:visibility="invisible"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
-    <!-- android:visibility="invisible"-->
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf5"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-
-      android:layout_marginTop="300dp"
+      android:id="@+id/image4"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="280dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
-
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf6"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="400dp"
+      android:id="@+id/image5"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="380dp"
+      android:visibility="invisible"
       android:onClick="onClicked"
-
-      android:src="@drawable/muff" />
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf7"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="500dp"
-
+      android:id="@+id/image6"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="480dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf8"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="600dp"
+      android:id="@+id/image7"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="580dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf9"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="600dp"
+      android:id="@+id/image8"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="680dp"
+      android:onClick="onClicked"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
+
+  <ImageView
+      android:id="@+id/image9"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="680dp"
       android:layout_marginStart="300dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
-  <ImageView
-      android:id="@+id/muf10"
-      android:layout_width="100dp"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
-      android:layout_height="100dp"
-      android:layout_marginTop="500dp"
+  <ImageView
+      android:id="@+id/image10"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="580dp"
       android:layout_marginStart="300dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf12"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="600dp"
-      android:layout_marginLeft="100dp"
+      android:id="@+id/image12"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="680dp"
+      android:layout_marginStart="100dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
   <ImageView
-      android:id="@+id/muf13"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginTop="600dp"
-      android:layout_marginLeft="200dp"
-      android:onClick="onClicked"
-      android:src="@drawable/muff" />
-
-
-  <ImageView
-      android:id="@+id/muf11"
-      android:layout_width="100dp"
-
-      android:layout_height="100dp"
-      android:layout_marginTop="200dp"
-      android:layout_marginStart="300dp"
-      android:onClick="onClicked"
-      android:src="@drawable/muff" />
-
-  <ImageView
-      android:id="@+id/muf14"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
+      android:id="@+id/image13"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="680dp"
       android:layout_marginStart="200dp"
       android:onClick="onClicked"
-      android:src="@drawable/muff" />
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
+
   <ImageView
-      android:id="@+id/muf15"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
+      android:id="@+id/image11"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="280dp"
+      android:layout_marginStart="300dp"
       android:onClick="onClicked"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
+
+  <ImageView
+      android:id="@+id/image14"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="280dp"
+      android:layout_marginStart="200dp"
+      android:onClick="onClicked"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
+
+  <ImageView
+      android:id="@+id/image15"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="280dp"
       android:layout_marginStart="100dp"
-      android:src="@drawable/muff" />
-
-
+      android:onClick="onClicked"
+      android:visibility="invisible"
+      android:src="@drawable/notes" />
 
 </FrameLayout>

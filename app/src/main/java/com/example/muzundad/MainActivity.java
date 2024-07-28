@@ -1,11 +1,9 @@
 package com.example.muzundad;
 
-import static android.content.ContentValues.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,213 +22,168 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.muzundad.databinding.ActivityMainBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
 import java.util.Random;
 
 
-/*
-MediaPlayer player;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-}
-public void onClicked(View view){
-  if(player == null){
-  player = MediaPlayer.create(MainActivity.this,R.raw.sound);
-  player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-      @Override
-      public void onCompletion(MediaPlayer mp) {
-    stopPlayer();
-      }
-  });
-  }
-  player.start();
-}
-
-public void pause(View v) {
-    if (player != null) {
-        player.pause();
-    }
-}
-
-public void stop(View v) {
-    stopPlayer();
-}
 
 
 
 
-
-
-public void stopPlayer(){
-    if(player != null){
-player.release();
-player=null;
-    }
-}
-
-*/
-    public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     MediaPlayer player,player2;
-        TextView scoreText;
-        TextView timeText;
-     ActivityMainBinding binding;
-        int score;
-        ImageView imageView;
-        ImageView imageView2;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        ImageView imageView6;
-        ImageView imageView7;
-        ImageView imageView8;
-        ImageView imageView9;
-        ImageView[] imageArray;
-        Handler handler;
-        Runnable runnable;
-    Scoreboard scoreboard = new Scoreboard();
+    TextView scoreText;
+    TextView timeText;
+    ActivityMainBinding binding;
+    int score;
+    ImageView imageView,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8,imageView9;
 
-FirebaseDatabase firebaseDatabase ;
-  private DatabaseReference databaseReference;
-   // Adaptor adaptor;
-String playerName;
-ArrayList<User> userArrayList ;
+    ImageView[] imageArray;
+    Handler handler;
+    Runnable runnable;
+
+
+    FirebaseDatabase firebaseDatabase ;
+    private DatabaseReference databaseReference;
+    // Adaptor adaptor;
+    String playerName;
+
     String muz = "muz";
 
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            binding = ActivityMainBinding.inflate(getLayoutInflater());
-            View view = binding.getRoot();
-            setContentView(view);
-         firebaseDatabase=FirebaseDatabase.getInstance("https://muzundadi-default-rtdb.europe-west1.firebasedatabase.app/");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        firebaseDatabase=FirebaseDatabase.getInstance("https://muzundadi-default-rtdb.europe-west1.firebasedatabase.app/");
 
 
-       Intent intent = getIntent();
-       playerName = intent.getStringExtra("username");
+        Intent intent = getIntent();
+        playerName = intent.getStringExtra("username");
 
 
-       userArrayList = new ArrayList<User>();
 
 
-            if(player == null){
-                player = MediaPlayer.create(MainActivity.this,R.raw.bettersound);
-                player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        stopPlayer();
-                    }
-                });
-            }
-            player.start();
-            //initialize
 
-            timeText = (TextView) findViewById(R.id.timeText);
-            scoreText = (TextView) findViewById(R.id.scoreText);
-            imageView = findViewById(R.id.imageView);
-            imageView2 = findViewById(R.id.imageView2);
-            imageView3 = findViewById(R.id.imageView3);
-            imageView4 = findViewById(R.id.imageView4);
-            imageView5 = findViewById(R.id.imageView5);
-            imageView6 = findViewById(R.id.imageView6);
-            imageView7 = findViewById(R.id.imageView7);
-            imageView8 = findViewById(R.id.imageView8);
-            imageView9 = findViewById(R.id.imageView9);
-
-            imageArray = new ImageView[] {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9};
-
-            hideImages();
-           binding.usernameTextView.setText(playerName);
-
-            score = 0;
-
-          new CountDownTimer(20000,1000) {
-
+        if(player == null){
+            player = MediaPlayer.create(MainActivity.this,R.raw.backgroundmusic);
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
-                public void onTick(long millisUntilFinished) {
+                public void onCompletion(MediaPlayer mp) {
+                    stopPlayer();
+                }
+            });
+        }
+        player.start();
+        //initialize
+
+        timeText = (TextView) findViewById(R.id.timeText);
+        scoreText = (TextView) findViewById(R.id.scoreText);
+        imageView = findViewById(R.id.imageView);
+        imageView2 = findViewById(R.id.imageView2);
+        imageView3 = findViewById(R.id.imageView3);
+        imageView4 = findViewById(R.id.imageView4);
+        imageView5 = findViewById(R.id.imageView5);
+        imageView6 = findViewById(R.id.imageView6);
+        imageView7 = findViewById(R.id.imageView7);
+        imageView8 = findViewById(R.id.imageView8);
+        imageView9 = findViewById(R.id.imageView9);
+
+        imageArray = new ImageView[] {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9};
+
+        hideImages();
+        binding.usernameTextView.setText("Username: "+playerName);
+
+        score = 0;
+
+        new CountDownTimer(20000,1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
 
 
-                    timeText.setText("Time: " + millisUntilFinished/1000);
+                timeText.setText("Time: " + millisUntilFinished/1000);
 
-                    if(score >=5 ){
-                        cancel();
-                    }
-
+                if(score >=10 ){
+                    cancel();
                 }
 
-                @Override
-                public void onFinish() {
+            }
 
-                        stopPlayer();
+            @Override
+            public void onFinish() {
 
-                    timeText.setText("Time Off");
-                    handler.removeCallbacks(runnable);
-                    for (ImageView image : imageArray) {
-                        image.setVisibility(View.INVISIBLE);
+                stopPlayer();
+
+                timeText.setText("Time Off");
+                handler.removeCallbacks(runnable);
+                for (ImageView image : imageArray) {
+                    image.setVisibility(View.INVISIBLE);
+                }
+
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+
+                alert.setTitle("First Part Is Over");
+                alert.setMessage("Start Again ?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        //restart
+
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+
                     }
+                });
 
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                    AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                        //Toast.makeText(MainActivity.this, "Bende döl yok", Toast.LENGTH_SHORT).show();
 
-                    alert.setTitle("Çay verim mi?");
-                    alert.setMessage("İçiyon mu ?");
-                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        if(!isNetworkAvailable()){
+                            Toast.makeText(MainActivity.this,"your connection is off ",Toast.LENGTH_LONG).show();
 
-                            //restart
-
-                            Intent intent = getIntent();
-                            finish();
+                            Intent intent = new Intent(MainActivity.this,LoginScreen.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
                         }
-                    });
 
-                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            //Toast.makeText(MainActivity.this, "Bende döl yok", Toast.LENGTH_SHORT).show();
-
-                            if(!isNetworkAvailable()){
-                                Toast.makeText(MainActivity.this,"your connection is off ",Toast.LENGTH_LONG).show();
-
-                                Intent intent = new Intent(MainActivity.this,LoginScreen.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-
-                            }
-
-                         //  binding.layout.setBackgroundResource(R.drawable.muz);
-                              else{
-                                readData();
-                                writeNewUser();
-
-                            }
+                        //  binding.layout.setBackgroundResource(R.drawable.muz);
+                        else{
+                            // readData();
+                            // writeNewUser();
+                            Intent intent = new Intent(MainActivity.this, LoginScreen.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish(); // Optionally, call finish() if you want to finish the current activity
 
                         }
-                    });
 
-                    alert.show();
+                    }
+                });
 
-                }
-              }.start();
+                alert.show();
+
+            }
+        }.start();
 
 
-        }
+    }
     public void stopPlayer(){
         if(player != null){
             player.release();
@@ -248,35 +201,27 @@ ArrayList<User> userArrayList ;
 
 
 
-    public void writeNewUser() {
-        User user = new User(playerName, score);
-        user.setName(playerName);
-        user.setScore(score);
-
-       databaseReference= firebaseDatabase.getReference().child("users").child(playerName);
-       databaseReference.setValue(user);
-
-    }
-
-        public void increaseScore (View view) {
 
 
-                player2 = MediaPlayer.create(MainActivity.this,R.raw.kisamuz);
-                player2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        if(player2 != null){
-                            player2.release();
+    public void increaseScore (View view) {
 
-                        }
-                    }
-                });
 
-            player2.start();
-            score++;
-            //score = score + 1;
-if(score >= 5){
-    stopPlayer();
+        player2 = MediaPlayer.create(MainActivity.this,R.raw.click);
+        player2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                if(player2 != null){
+                    player2.release();
+
+                }
+            }
+        });
+
+        player2.start();
+        score++;
+
+        if(score >= 10){
+            stopPlayer();
             for (ImageView image : imageArray) {
                 image.setVisibility(View.INVISIBLE);
             }
@@ -284,61 +229,61 @@ if(score >= 5){
             final Handler handler = new Handler();
             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setMessage("First part of this game is over ");
-            builder.setTitle("Muzun dadı");
+            builder.setTitle("Catch The Image");
             final AlertDialog dialog= builder.create();
             dialog.show();
 
 
 
-    new java.util.Timer().schedule(
-            new java.util.TimerTask() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(MainActivity.this,SecondPartOfGame.class);
-                    intent.putExtra("score",score);
-                    intent.putExtra("playerName",playerName);
-                    dialog.dismiss();
-                    startActivity(intent);
-                    finish();
-                    // your code here
-                }
-            },
-            3000
-    );
-
-}
-            scoreText.setText(muz +" " +  score);
-
-
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(MainActivity.this,SecondPartOfGame.class);
+                            intent.putExtra("score",score);
+                            intent.putExtra("playerName",playerName);
+                            dialog.dismiss();
+                            startActivity(intent);
+                            finish();
+                            // your code here
+                        }
+                    },
+                    3000
+            );
 
         }
+        scoreText.setText("Score: " +  score);
 
-        public void hideImages() {
 
-            handler = new Handler();
 
-            runnable = new Runnable() {
-                @Override
-                public void run() {
+    }
 
-                    for (ImageView image : imageArray) {
-                        image.setVisibility(View.INVISIBLE);
-                    }
+    public void hideImages() {
 
-                    Random random = new Random();
-                    int i = random.nextInt(9);
-                    imageArray[i].setVisibility(View.VISIBLE);
+        handler = new Handler();
 
-                    handler.postDelayed(this,1500);
+        runnable = new Runnable() {
+            @Override
+            public void run() {
 
+                for (ImageView image : imageArray) {
+                    image.setVisibility(View.INVISIBLE);
                 }
-            };
+
+                Random random = new Random();
+                int i = random.nextInt(9);
+                imageArray[i].setVisibility(View.VISIBLE);
+
+                handler.postDelayed(this,1500);
+
+            }
+        };
 
 
-            handler.post(runnable);
+        handler.post(runnable);
 
 
-        }
+    }
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

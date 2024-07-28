@@ -5,49 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginScreen"
-
-
     >
 
 
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/muf"
-            android:id="@+id/background_one"
-            />
+    <ImageView
+        android:id="@+id/background_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/img_3" />
 
 
     <ImageView
+        android:id="@+id/background_two"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/muf"
-        android:id="@+id/background_two"
+        android:src="@drawable/img_3"
 
-        tools:layout_editor_absoluteX="-342dp"
-        tools:layout_editor_absoluteY="-186dp" />
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hoşgeldin muzun dadını bilmeyen dostum"
+        android:layout_marginTop="132dp"
+        android:text="@string/header"
         android:textSize="20sp"
-        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Enter your name"
+        android:hint="Enter your username"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -58,33 +53,39 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:backgroundTint="#f5f542"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#b0ada5"
         android:onClick="onClick"
-        android:text="Muzun dadına var"
+        android:text="@string/enterbutton"
         android:textColor="@color/black"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
+
+
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-
-        />
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="#f5f542"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#b0ada5"
         android:onClick="scoreboardClicked"
-        android:text="Kim en çok muz doplamış"
+        android:text="@string/scoreboardbutton"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="497dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
