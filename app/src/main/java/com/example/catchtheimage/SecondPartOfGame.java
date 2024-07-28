@@ -4,7 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -67,7 +67,7 @@ public class SecondPartOfGame extends AppCompatActivity {
         playerName = intent.getStringExtra("playerName");
         databaseReference = firebaseDatabase.getReference().child("users").child(playerName);
 
-        System.out.println("PLAYER NAMEEEEE " + playerName);
+
         dialog.show();
         handler.postDelayed(new Runnable() {
             public void run() {

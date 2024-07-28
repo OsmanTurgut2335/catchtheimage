@@ -3,31 +3,22 @@ package com.example.catchtheimage;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.example.catchtheimage.databinding.ActivityMainBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
-import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -50,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     FirebaseDatabase firebaseDatabase ;
-    private DatabaseReference databaseReference;
-    // Adaptor adaptor;
+
     String playerName;
 
     String muz = "muz";
@@ -69,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         playerName = intent.getStringExtra("username");
-
-
-
 
 
         if(player == null){
@@ -152,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        //Toast.makeText(MainActivity.this, "Bende döl yok", Toast.LENGTH_SHORT).show();
+
 
                         if(!isNetworkAvailable()){
                             Toast.makeText(MainActivity.this,"your connection is off ",Toast.LENGTH_LONG).show();
@@ -163,14 +150,13 @@ public class MainActivity extends AppCompatActivity {
 
                         }
 
-                        //  binding.layout.setBackgroundResource(R.drawable.muz);
                         else{
                             // readData();
                             // writeNewUser();
                             Intent intent = new Intent(MainActivity.this, LoginScreen.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
-                            finish(); // Optionally, call finish() if you want to finish the current activity
+                            finish();
 
                         }
 
@@ -182,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
 
-
     }
     public void stopPlayer(){
         if(player != null){
@@ -190,19 +175,6 @@ public class MainActivity extends AppCompatActivity {
             player=null;
         }
     }
-
-    public void readData(){
-
-        Intent intent = new Intent(MainActivity.this,Scoreboard.class);
-        startActivity(intent);
-
-    }
-
-
-
-
-
-
     public void increaseScore (View view) {
 
 
@@ -225,15 +197,11 @@ public class MainActivity extends AppCompatActivity {
             for (ImageView image : imageArray) {
                 image.setVisibility(View.INVISIBLE);
             }
-
-            final Handler handler = new Handler();
             final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setMessage("First part of this game is over ");
             builder.setTitle("Catch The Image");
             final AlertDialog dialog= builder.create();
             dialog.show();
-
-
 
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
@@ -259,30 +227,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hideImages() {
-
         handler = new Handler();
-
         runnable = new Runnable() {
             @Override
             public void run() {
-
                 for (ImageView image : imageArray) {
                     image.setVisibility(View.INVISIBLE);
                 }
-
                 Random random = new Random();
                 int i = random.nextInt(9);
                 imageArray[i].setVisibility(View.VISIBLE);
-
                 handler.postDelayed(this,1500);
 
             }
         };
-
-
         handler.post(runnable);
-
-
     }
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager

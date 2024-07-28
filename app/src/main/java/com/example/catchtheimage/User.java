@@ -1,6 +1,5 @@
 package com.example.catchtheimage;
 
-
 import com.google.firebase.database.PropertyName;
 
 public class User {
@@ -30,7 +29,6 @@ public class User {
      return user;
 
     }
-
 
     public int getScore() {
         return score;

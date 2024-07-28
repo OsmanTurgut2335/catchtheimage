@@ -19,12 +19,6 @@ public class Adaptor extends  RecyclerView.Adapter <Adaptor.UserHolder> {
 private Context mContext;
 private Adaptor adaptor ;
 
-/*
-public void setConfig(RecyclerView recyclerView, Context context, List<User>users   , List<String> keys){
-mContext = context;
-adaptor = new Adaptor();
-
-    }*/
 
 
     public Adaptor(ArrayList<User> userArrayList) {
