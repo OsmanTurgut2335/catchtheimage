@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace 'com.example.muzundad'
+    namespace 'com.example.catchtheimage'
     compileSdk 32
 
     buildFeatures {
         viewBinding true
     }
     defaultConfig {
-        applicationId "com.example.muzundad"
+        applicationId "com.example.catchtheimage"
         minSdk 21
         targetSdk 32
         versionCode 1
